@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Birthday, My Love ❤️</title>
+  <meta name="description" content="A digital birthday surprise made especially with love for the most wonderful girl.">
+  <meta name="theme-color" content="#d6687a">
+  <link rel="stylesheet" href="css/style.css">
+  <!-- Canvas Confetti Library for Celebrations -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+</head>
+<body>
+
+  <!-- Floating Hearts & Sparkles Background Canvas -->
+  <canvas id="particles-canvas"></canvas>
+
+  <!-- ====================================================================
+       TOP LUXURY NAVIGATION BAR (Switch Pages on Click)
+       ==================================================================== -->
+  <nav class="site-nav">
+    <div class="nav-inner">
+      <a class="nav-brand" data-page="home" href="#home">
+        My Love ❤️
+      </a>
+
+      <button class="nav-mobile-toggle" id="navMobileToggle" aria-label="Toggle Navigation">
+        ☰
+      </button>
+
+      <ul class="nav-menu" id="navMenu">
+        <li class="nav-item">
+          <a class="nav-link active" data-page="home" href="#home">🌟 Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" data-page="letter" href="#letter">💌 Love Letter</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" data-page="memories" href="#memories">📸 Memories</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" data-page="reasons" href="#reasons">💖 Reasons</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" data-page="story" href="#story">🕊️ Our Story</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" data-page="countdown" href="#countdown">⏳ Countdown</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" data-page="wish" href="#wish">🎂 Make a Wish</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ====================================================================
+       MULTI-PAGE VIEW ARCHITECTURE
+       ==================================================================== -->
+  <main class="page-container">
+
+    <!-- ------------------------------------------------------------------
+         PAGE 1: HERO / OPENING
+         ------------------------------------------------------------------ -->
+    <section class="page-view active" id="page-home">
+      <div class="hero-wrapper">
+        <div class="hero-bg-blobs">
+          <div class="blob blob-1"></div>
+          <div class="blob blob-2"></div>
+          <div class="blob blob-3"></div>
+        </div>
+
+        <div class="container hero-content">
+          <div class="hero-badge" id="heroBadge">
+            <span>✨</span> A Digital Birthday Surprise For You
+          </div>
+
+          <div class="hero-image-wrapper">
+            <div class="hero-image-ring"></div>
+            <div class="hero-image-frame">
+              <img src="assets/photos/photo_03.jpeg" alt="Us Together" class="hero-image" id="heroImg">
+            </div>
+            <div class="hero-sparkle-badge">💖</div>
+          </div>
+
+          <h1 class="hero-title" id="heroHeading">
+            Happy Birthday, <span class="script-title" id="heroNameText">My Love ❤️</span>
+          </h1>
+
+          <p class="hero-subtitle" id="heroSubtitle">
+            Today is all about celebrating the most beautiful person in my life.
+          </p>
+
+          <div class="hero-cta-group">
+            <button class="btn-romantic" data-page="letter">
+              <span>Open Your Surprise ❤️</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ------------------------------------------------------------------
+         PAGE 2: HEARTFELT BIRTHDAY LETTER
+         ------------------------------------------------------------------ -->
+    <section class="page-view" id="page-letter">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-badge">From My Heart 💌</span>
+          <h2 class="section-title">A Letter <span class="script-accent">Just For You</span></h2>
+          <p class="section-subtitle">A few words to celebrate the girl who means everything to me.</p>
+        </div>
+
+        <div class="envelope-wrapper">
+          <div class="envelope-card">
+            <div class="envelope-decor-corner top-left">❦</div>
+            <div class="envelope-decor-corner top-right">❦</div>
+            <div class="envelope-decor-corner bottom-left">❦</div>
+            <div class="envelope-decor-corner bottom-right">❦</div>
+
+            <div class="letter-header">
+              <div class="letter-badge-icon">💌</div>
+              <h3 class="letter-salutation" id="letterSalutation">My Dearest,</h3>
+            </div>
+
+            <div class="letter-body" id="letterBody">
+              <!-- Populated dynamically via config.js -->
+            </div>
+
+            <div class="letter-signature-block">
+              <p class="letter-closing" id="letterClosing">Forever & Always Yours,</p>
+              <p class="letter-signature" id="letterSignature">With all my love ❤️</p>
+            </div>
+
+            <div class="letter-wax-seal" title="Sealed With Love" id="waxSealBtn">
+              <span>❤️</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Page Navigation -->
+        <div class="page-nav-controls">
+          <button class="btn-page-nav prev" data-page="home">← Back to Home</button>
+          <button class="btn-page-nav next" data-page="memories">Explore Our Memories 📸 →</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ------------------------------------------------------------------
+         PAGE 3: OUR MEMORIES SCRAPBOOK GALLERY
+         ------------------------------------------------------------------ -->
+    <section class="page-view" id="page-memories">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-badge">Every Moment With You 📸</span>
+          <h2 class="section-title">Our Favorite <span class="script-accent">Memories</span></h2>
+          <p class="section-subtitle">A handpicked collection of our most cherished moments, adventures, and sweetest laughs.</p>
+        </div>
+
+        <!-- Filter Controls -->
+        <div class="gallery-filter-bar">
+          <button class="filter-btn active" data-filter="all">All Memories (12)</button>
+          <button class="filter-btn" data-filter="dates">Romantic Dates 🌹</button>
+          <button class="filter-btn" data-filter="adventures">Adventures & Beach 🌊</button>
+          <button class="filter-btn" data-filter="traditional">Traditional & Festive 🪔</button>
+          <button class="filter-btn" data-filter="candid">Candid Smiles 🎀</button>
+        </div>
+
+        <!-- Polaroid Scrapbook Grid -->
+        <div class="scrapbook-grid" id="scrapbookGrid">
+          <!-- 12 curated non-repetitive photos populated via JavaScript -->
+        </div>
+
+        <!-- Page Navigation -->
+        <div class="page-nav-controls">
+          <button class="btn-page-nav prev" data-page="letter">← Back to Letter</button>
+          <button class="btn-page-nav next" data-page="reasons">Why I Love You 💖 →</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ------------------------------------------------------------------
+         PAGE 4: REASONS I LOVE YOU
+         ------------------------------------------------------------------ -->
+    <section class="page-view" id="page-reasons">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-badge">Endless Reasons 💖</span>
+          <h2 class="section-title">Reasons <span class="script-accent">I Love You</span></h2>
+          <p class="section-subtitle">There are a million reasons, but here are a few that remind me every day how blessed I am.</p>
+        </div>
+
+        <div class="reasons-grid" id="reasonsGrid">
+          <!-- Reasons populated via JavaScript -->
+        </div>
+
+        <!-- Page Navigation -->
+        <div class="page-nav-controls">
+          <button class="btn-page-nav prev" data-page="memories">← Back to Memories</button>
+          <button class="btn-page-nav next" data-page="story">Our Little Story 🕊️ →</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ------------------------------------------------------------------
+         PAGE 5: OUR STORY (TIMELINE)
+         ------------------------------------------------------------------ -->
+    <section class="page-view" id="page-story">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-badge">Our Journey Together 🕊️</span>
+          <h2 class="section-title">Our Little <span class="script-accent">Story</span></h2>
+          <p class="section-subtitle">From our first hello to this very moment, every chapter with you has been my favorite.</p>
+        </div>
+
+        <div class="timeline-container" id="timelineContainer">
+          <div class="timeline-line"></div>
+          <!-- Timeline items populated via JavaScript -->
+        </div>
+
+        <!-- Page Navigation -->
+        <div class="page-nav-controls">
+          <button class="btn-page-nav prev" data-page="reasons">← Back to Reasons</button>
+          <button class="btn-page-nav next" data-page="countdown">Birthday Countdown ⏳ →</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ------------------------------------------------------------------
+         PAGE 6: BIRTHDAY COUNTDOWN
+         ------------------------------------------------------------------ -->
+    <section class="page-view" id="page-countdown">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-badge">The Special Celebration 🎂</span>
+          <h2 class="section-title">Counting Down <span class="script-accent">To Her Day</span></h2>
+          <p class="section-subtitle" id="countdownSubtitle">Every second brings us closer to celebrating you!</p>
+        </div>
+
+        <div class="countdown-box">
+          <!-- Countdown Timer Display -->
+          <div class="countdown-grid" id="countdownGrid">
+            <div class="countdown-card">
+              <span class="countdown-num" id="cdDays">00</span>
+              <span class="countdown-label">Days</span>
+            </div>
+            <div class="countdown-card">
+              <span class="countdown-num" id="cdHours">00</span>
+              <span class="countdown-label">Hours</span>
+            </div>
+            <div class="countdown-card">
+              <span class="countdown-num" id="cdMinutes">00</span>
+              <span class="countdown-label">Minutes</span>
+            </div>
+            <div class="countdown-card">
+              <span class="countdown-num" id="cdSeconds">00</span>
+              <span class="countdown-label">Seconds</span>
+            </div>
+          </div>
+
+          <!-- Birthday Day Celebration State -->
+          <div class="celebration-banner" id="celebrationBanner">
+            <h3 class="celebration-heading">Today is YOUR DAY! 🎂❤️</h3>
+            <p class="celebration-sub">Happy Birthday to the queen of my heart! May your day be filled with endless smiles, pure joy, sweet surprises, and unconditional love!</p>
+          </div>
+        </div>
+
+        <!-- Page Navigation -->
+        <div class="page-nav-controls">
+          <button class="btn-page-nav prev" data-page="story">← Back to Our Story</button>
+          <button class="btn-page-nav next" data-page="wish">Make A Wish & Grand Finale 🎂 →</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ------------------------------------------------------------------
+         PAGE 7: FINAL SURPRISE & CAKE
+         ------------------------------------------------------------------ -->
+    <section class="page-view" id="page-wish">
+      <div class="container">
+        <div class="final-surprise-wrapper">
+          <img src="assets/photos/photo_13.jpeg" alt="Romantic Background" class="final-bg-image" id="finalBgImg">
+          <div class="final-overlay"></div>
+
+          <div class="final-content">
+            <div class="final-badge">
+              <span>✨</span> The Best Is Yet To Come
+            </div>
+
+            <h2 class="final-title">
+              One Last <span class="script-accent">Thing... ❤️</span>
+            </h2>
+
+            <p class="final-text" id="finalSurpriseText">
+              No matter where life takes us, I hope we continue creating beautiful memories together.<br><br>
+              Happy Birthday, beautiful. ❤️<br><br>
+              I love you.
+            </p>
+
+            <!-- Interactive 3D Birthday Cake -->
+            <div class="cake-wrapper" id="cakeWrapper" title="Click candle or button to blow out!">
+              <div class="cake">
+                <div class="cake-candle">
+                  <div class="candle-flame" id="candleFlame"></div>
+                  <div class="candle-smoke" id="candleSmoke"></div>
+                </div>
+                <div class="cake-top"></div>
+                <div class="cake-bottom"></div>
+                <div class="cake-plate"></div>
+              </div>
+              <div class="cake-hint">Tap candle or click button below to make your birthday wish!</div>
+            </div>
+
+            <button class="btn-wish" id="makeWishBtn">
+              <span>Make a Wish 🎂</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Page Navigation -->
+        <div class="page-nav-controls">
+          <button class="btn-page-nav prev" data-page="countdown">← Back to Countdown</button>
+          <button class="btn-page-nav next" data-page="home">Back to Beginning 🌟</button>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ====================================================================
+       FOOTER & SECRET EASTER EGG
+       ==================================================================== -->
+  <footer class="site-footer">
+    <div class="container footer-content">
+      <div class="footer-easter-egg" id="easterEggHeart" title="A secret note for you ❤️">
+        ❤️
+      </div>
+      <p class="footer-text">
+        Crafted with all my heart for <strong id="footerHerName">My Love</strong>'s Birthday
+      </p>
+      <p class="footer-sub">
+        Forever & Always • Memories to last a lifetime
+      </p>
+    </div>
+  </footer>
+
+  <!-- ====================================================================
+       LIGHTBOX FULLSCREEN MODAL
+       ==================================================================== -->
+  <div class="lightbox-modal" id="lightboxModal" role="dialog" aria-modal="true">
+    <button class="lightbox-close-btn" id="lightboxCloseBtn" aria-label="Close photo">&times;</button>
+    <button class="lightbox-nav-btn prev" id="lightboxPrevBtn" aria-label="Previous photo">&#10094;</button>
+    <button class="lightbox-nav-btn next" id="lightboxNextBtn" aria-label="Next photo">&#10095;</button>
+
+    <div class="lightbox-content-box">
+      <div class="lightbox-img-wrapper">
+        <img src="" alt="Memory Photo" class="lightbox-img" id="lightboxImg">
+      </div>
+      <div class="lightbox-info">
+        <p class="lightbox-caption" id="lightboxCaption">Our memory</p>
+        <span class="lightbox-counter" id="lightboxCounter">1 / 12</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ====================================================================
+       WISH CONFIRMATION MODAL
+       ==================================================================== -->
+  <div class="wish-modal" id="wishModal" role="dialog" aria-modal="true">
+    <div class="wish-card">
+      <div class="wish-icon">🎂✨</div>
+      <h3 class="wish-title">A Beautiful Wish!</h3>
+      <p class="wish-message" id="wishModalMessage">
+        Your wish has been sent to the universe. ✨❤️<br>
+        May every single dream of yours come true!
+      </p>
+      <button class="btn-close-wish" id="closeWishBtn">I Love You ❤️</button>
+    </div>
+  </div>
+
+  <!-- ====================================================================
+       SECRET EASTER EGG MODAL
+       ==================================================================== -->
+  <div class="secret-modal" id="secretModal" role="dialog" aria-modal="true">
+    <div class="secret-card">
+      <div style="font-size: 2.6rem; margin-bottom: 12px;">💌</div>
+      <h3 style="font-family: var(--font-serif); font-size: 1.8rem; color: var(--color-burgundy); margin-bottom: 12px;" id="secretTitle">You Found My Secret Note!</h3>
+      <p style="font-size: 1.05rem; color: var(--text-secondary); line-height: 1.7; margin-bottom: 24px;" id="secretMessage">
+        P.S. If you're reading this, know that you are the most precious person in my life. Every beat of my heart whispers how grateful I am for you. Forever yours! ❤️
+      </p>
+      <button class="btn-close-wish" id="closeSecretBtn">Close Secret Note</button>
+    </div>
+  </div>
+
+  <!-- ====================================================================
+       FLOATING ROMANTIC MUSIC CONTROLLER
+       ==================================================================== -->
+  <div class="music-player-pill" id="musicPlayerPill" title="Click to play/pause our romantic song">
+    <div class="music-btn-icon" id="musicIcon">🎵</div>
+    <div class="music-info">
+      <span class="music-title" id="musicLabel">Play Our Song</span>
+      <span class="music-sub" id="musicSub">Romantic Melody</span>
+    </div>
+    <div class="music-wave" id="musicWave">
+      <div class="wave-bar"></div>
+      <div class="wave-bar"></div>
+      <div class="wave-bar"></div>
+      <div class="wave-bar"></div>
+    </div>
+    <!-- Hidden standard audio element -->
+    <audio id="audioElement" preload="auto"></audio>
+  </div>
+
+  <!-- Application Scripts -->
+  <script src="js/config.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
